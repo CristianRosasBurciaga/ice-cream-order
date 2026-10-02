@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #e4eaef;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    width: 70%;
+    background-color: white;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    font-size: 1.25rem
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+legend {
+    color: green;
+    font-weight:bold;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+}
+
+fieldset {
+    margin-bottom: 1.5rem;
+    border-radius: 0.25rem;
+}
+
+section {
+    margin-bottom: 1.5rem;
+
+}
+
+p, label {
+    margin-bottom: .5rem;
+}
+
+#personal-info label, #comment label {
+    display: block;
+}
+
+ input[type="text"], input[type="email"], select {
+    border: 1px solid grey;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    font-size: 1.5rem;
+} 
+
+textarea {
+    width: 100%;
+    padding: 0.25rem;
+    margin-bottom: 1rem;
+    resize: none;
+}
+
+button {
+    background-color: green;
+    color: white;
+    width: 100%;
+    border: 1px solid grey;
+    font-size: 2rem;
+    border-radius: 0.25rem;
+}

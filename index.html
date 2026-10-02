@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Images/icecreamfav.png">
+    <link rel="stylesheet" href="Styles/styles.css">
+    <title>Ice Cream</title>
+</head>
+<body>
+    <main>
+        <h1>Ice Cream Order Form</h1>
+
+    <form action="#" method="get">
+        <fieldset >
+            <legend>Personal information</legend>
+            <section id="personal-info">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            </section>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Order Details</legend>
+            
+            <section id="flavor">
+                <p>Choose your flavor:</p>
+            <select name="flavor" id="flavor">
+                <option value="vanilla">Vanilla</option>
+                <option value="chocolate">Chocolate</option>
+                <option value="strawberry">Strawberry</option>
+                <option value="bubble-gum">Bubble Gum</option>
+            </select>
+            </section>
+
+            <section id="cone">
+            <p>Choose your cone:</p>
+            <label for="waffle">
+                <input type="radio" id="waffle" name="cone" value="waffle">
+                Waffle Cone
+            </label> 
+            <label for="sugar">
+            <input type="radio" id="sugar" name="cone" value="sugar">
+            Sugar Cone
+            </label>
+            <label for="cup">
+                <input type="radio" id="cup" name="cone" value="cup">
+                Cup</label>
+            </section>
+
+       
+            <section id="topping">
+                <p>Toppings:</p>
+            <label for="sprinkes">
+                <input type="checkbox" id="sprinkles" name="toppings[]" value="sprinkles">
+                Sprinkles
+            </label>
+            <label for="nuts">
+                <input type="checkbox" id="nuts" name="toppings[]" value="nuts">
+                Nuts
+            </label>
+            <label for="cherry">
+                <input type="checkbox" id="cherry" name="toppings[]" value="cherry">
+                Cherry
+            </label>
+            <label for="whipped-cream">
+                <input type="checkbox" id="whipped-cream" name="toppingsp[]" value="whipped-cream">
+                Whipped Cream
+            </label>
+            </section>
+    
+
+            <section id="comment">
+            <label for="comment">Additional comments:</label>
+            <textarea rows="5" name="comment" id="comment"></textarea>
+            </section>
+        </fieldset>
+
+        <button type="submit" id="submit">Submit Order</button>
+    </form>
+    </main>
+    
+</body>
+</html>
