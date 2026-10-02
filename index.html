@@ -14,69 +14,69 @@
     <form action="#" method="get">
         <fieldset >
             <legend>Personal information</legend>
-            <section id="personal-info">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
-            </section>
+            <div id="personal-info">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+            </div>
         </fieldset>
 
 
         <fieldset>
             <legend>Order Details</legend>
             
-            <section id="flavor">
+            <div id="select-flavor">
                 <p>Choose your flavor:</p>
-            <select name="flavor" id="flavor">
-                <option value="vanilla">Vanilla</option>
-                <option value="chocolate">Chocolate</option>
-                <option value="strawberry">Strawberry</option>
-                <option value="bubble-gum">Bubble Gum</option>
-            </select>
-            </section>
+                <select name="flavor" id="flavor">
+                    <option value="vanilla">Vanilla</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="strawberry">Strawberry</option>
+                    <option value="bubble-gum">Bubble Gum</option>
+                </select>
+            </div>
 
-            <section id="cone">
-            <p>Choose your cone:</p>
-            <label for="waffle">
-                <input type="radio" id="waffle" name="cone" value="waffle">
-                Waffle Cone
-            </label> 
-            <label for="sugar">
-            <input type="radio" id="sugar" name="cone" value="sugar">
-            Sugar Cone
-            </label>
-            <label for="cup">
-                <input type="radio" id="cup" name="cone" value="cup">
-                Cup</label>
-            </section>
+            <div id="cone">
+                <p>Choose your cone:</p>
+                <label for="waffle">
+                    <input type="radio" id="waffle" name="cone" value="waffle">
+                    Waffle Cone
+                </label> 
+                <label for="sugar">
+                <input type="radio" id="sugar" name="cone" value="sugar">
+                Sugar Cone
+                </label>
+                <label for="cup">
+                    <input type="radio" id="cup" name="cone" value="cup">
+                    Cup</label>
+            </div>
 
        
-            <section id="topping">
-                <p>Toppings:</p>
-            <label for="sprinkes">
-                <input type="checkbox" id="sprinkles" name="toppings[]" value="sprinkles">
-                Sprinkles
-            </label>
-            <label for="nuts">
-                <input type="checkbox" id="nuts" name="toppings[]" value="nuts">
-                Nuts
-            </label>
-            <label for="cherry">
-                <input type="checkbox" id="cherry" name="toppings[]" value="cherry">
-                Cherry
-            </label>
-            <label for="whipped-cream">
-                <input type="checkbox" id="whipped-cream" name="toppingsp[]" value="whipped-cream">
-                Whipped Cream
-            </label>
-            </section>
+            <div id="topping">
+                    <p>Toppings:</p>
+                <label for="sprinkles">
+                    <input type="checkbox" id="sprinkles" name="toppings[]" value="sprinkles">
+                    Sprinkles
+                </label>
+                <label for="nuts">
+                    <input type="checkbox" id="nuts" name="toppings[]" value="nuts">
+                    Nuts
+                </label>
+                <label for="cherry">
+                    <input type="checkbox" id="cherry" name="toppings[]" value="cherry">
+                    Cherry
+                </label>
+                <label for="whipped-cream">
+                    <input type="checkbox" id="whipped-cream" name="toppingsp[]" value="whipped-cream">
+                    Whipped Cream
+                </label>
+            </div>
     
 
-            <section id="comment">
-            <label for="comment">Additional comments:</label>
-            <textarea rows="5" name="comment" id="comment"></textarea>
-            </section>
+            <div id="add-comment">
+                <label for="comment">Additional comments:</label>
+                <textarea rows="5" name="comment" id="comment"></textarea>
+            </div>
         </fieldset>
 
         <button type="submit" id="submit">Submit Order</button>
