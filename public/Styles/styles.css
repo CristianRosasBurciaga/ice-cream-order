@@ -71,3 +71,8 @@ button {
     font-size: 2rem;
     border-radius: 0.25rem;
 }
+
+.error {
+    display: none;
+    color: red;
+}
