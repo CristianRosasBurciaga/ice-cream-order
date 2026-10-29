@@ -13,12 +13,45 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}));
 
+const orders = [];
+
 // Define a default "route" ('/')
 // req: contains information about the incoming request
 // res: allows us to send back a response to the client
 app.get('/', (req, res) => {
 res.sendFile(`${import.meta.dirname}/views/home.html`)
 // res.send('hello');
+
+//Add a route for the form submission
+app.post('/#', (req, res) => {
+
+    //Create a JSON object to store the order data
+    const order = req.body;
+    order.timestamp = new Date();
+
+    console.log(order);
+
+       /* fname: req.body.fname,
+        lname: req.body.lname,
+        email:req.body.email,
+        method:req.body.method,
+
+        toppings: req.body.toppings,
+        size: req.body.size,
+
+        comment: req.body.comment,
+        timestamp:newDate()
+        */
+
+    //add the order object to our orders array
+    orders.push(order);
+    console.log(orders);
+
+    //Display the confirmation page
+    res.render(`confirm`, {order});
+
+    });
+
 
 });
 
