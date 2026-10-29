@@ -23,7 +23,7 @@ res.render(`home`)
 // res.send('hello');
 
 //Add a route for the form submission
-app.post('/#', (req, res) => {
+app.post('/confirm', (req, res) => {
 
     //Create a JSON object to store the order data
     const order = req.body;
