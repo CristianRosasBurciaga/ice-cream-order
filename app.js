@@ -31,17 +31,6 @@ app.post('/confirm', (req, res) => {
 
     console.log(order);
 
-       /* fname: req.body.fname,
-        lname: req.body.lname,
-        email:req.body.email,
-        method:req.body.method,
-
-        toppings: req.body.toppings,
-        size: req.body.size,
-
-        comment: req.body.comment,
-        timestamp:newDate()
-        */
 
     //add the order object to our orders array
     orders.push(order);
