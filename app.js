@@ -33,18 +33,18 @@ app.use(express.urlencoded({extended:true}));
 
 const orders = [];
 
-// Create a route to test the database
+// // Create a route to test the database
 
-app.get('/db-test', async(req, res) => {
-    try {
-        const [orders] = await 
-            pool.query('SELECT * FROM orders');
-        res.send(orders);
-    } catch(err) {
-        console.error('Database error: ', err);
-        res.status(500).send('Database error occurred.');
-    }
-});
+// app.get('/db-test', async(req, res) => {
+//     try {
+//         const [orders] = await 
+//             pool.query('SELECT * FROM orders');
+//         res.send(orders);
+//     } catch(err) {
+//         console.error('Database error: ', err);
+//         res.status(500).send('Database error occurred.');
+//     }
+// });
 
 
 
@@ -57,21 +57,26 @@ res.render(`home`)
 });
 
 // Confirmation route - handles form submission
-app.post('/confirm', async (req, res) => {
+app.post('/confirm', async(req, res) => {
 
     try {
         // Get form data from req.body
-        const order = req.body;         
+        const order = req.body;  
+
+        order.timestamp = new Date();
+   
 
         // Log the order data (for debugging)
         console.log('New order submitted:', order);
 
 	  // Convert toppings array to comma-separated string 
-  order.toppings = Array.isArray(order.toppings) ?
+        order.toppings = Array.isArray(order.toppings) ?
     	  	order.toppings.join(", ") : "";  
 
         // SQL INSERT query with placeholders to prevent SQL injection
-        const sql = `INSERT INTO orders(customer, email, flavor, cone, toppings, comment) VALUES (?, ?, ?, ?, ?, ?);`;
+        const sql = `INSERT INTO orders(customer, email,
+         flavor, cone, toppings, comment)
+          VALUES (?, ?, ?, ?, ?, ?);`;
 
 
         // Parameters array must match the order of ? placeholders
@@ -82,20 +87,20 @@ app.post('/confirm', async (req, res) => {
 		order.flavor,
 		order.cone,
 		order.toppings,
-           order.comment
+        order.comment
         ];
 
 
         // Execute the query and grab the primary key of the new row
 	  // Array destructuring with [result] gives us the first element
-        const [result] = await pool.execute(sql, params);
+    const [result] = await pool.execute(sql, params);
 
 	  // Add the order ID to the order object
-	  order.id = result.insertId;
-	  console.log('Order saved with ID:', order.id);
+	order.id = result.insertId;
+	console.log('Order saved with ID:', order.id);
 
         // Render confirmation page with the order data
-        res.render('confirmation', { order });        
+    res.render('confirm', { order });        
 
     } catch (err) {
 
@@ -109,14 +114,12 @@ your order. Please try again.`);
 app.get('/admin', async (req, res) => {
     try {
         // Fetch all orders from database, most recent first
-        const [orders] = await pool.query(`SELECT * FROM orders
-                ORDER BY timestamp DESC`);  
+        const [orders] = await pool.query(`SELECT * FROM orders ORDER BY timestamp DESC`);  
         // Render the admin page
         res.render('admin', { orders });        
     } catch (err) {
         console.error('Database error:', err);
-        res.status(500).send('Error loading orders: '
-+ err.message);
+        res.status(500).send('Error loading orders: ' + err.message);
     }
 });
 
