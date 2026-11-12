@@ -22,13 +22,13 @@
                 <th>Cone Type</th>
                 <th>Toppings</th>
                 <th>Comments</th>
-\            </tr>
+            </tr>
         </thead>
         <tbody>
             <% orders.forEach(order => { %>
                 <tr>
                     <td><%= order.timestamp.toLocaleString() %></td>
-                    <td><%= order.name%></td>
+                    <td><%= order.customer%></td>
                     <td><%= order.email %></td>
                      <td><%= order.flavor %></td>
                     <td><%= order.cone %></td>

@@ -4,7 +4,7 @@ document.getElementById("ice-cream-form").onsubmit = () => {
     clearErrors();
 
     //Validate name
-    let name = document.getElementById("name").value;
+    let name = document.getElementById("customer").value;
     if(name === "") {
         document.getElementById("error-name").style.display = "block";
         isValid = false;
