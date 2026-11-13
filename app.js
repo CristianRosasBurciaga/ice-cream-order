@@ -1,11 +1,9 @@
 //Import import express from 'express';
+// Import required modules
 import express from 'express';
-
-// Import mysql
 import mysql2 from 'mysql2';
-
-// Import .env
 import dotenv from 'dotenv';
+// Load the environment variables from .env file
 dotenv.config();
 
 
@@ -34,17 +32,18 @@ app.use(express.urlencoded({extended:true}));
 const orders = [];
 
 // Create a route to test the database
-
-app.get('/db-test', async(req, res) => {
+app.get('/db-test', async (req, res) => {
     try {
-        const [orders] = await 
-            pool.query('SELECT * FROM orders');
+    // [orders] uses array destructuring to get just the data
+        const [orders] = await pool.query('SELECT * FROM orders');
         res.send(orders);
-    } catch(err) {
-        console.error('Database error: ', err);
-        res.status(500).send('Database error occurred.');
+    } catch (err) {
+    console.error('Database error:', err);
+    res.status(500).send('Database error: ' + err.message);
     }
 });
+
+
 
 
 
